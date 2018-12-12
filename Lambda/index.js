@@ -7,8 +7,6 @@
  * The Intent Schema, Custom Slots and Sample Utterances for this skill, as well
  * as testing instructions are located at https://github.com/alexa/skill-sample-nodejs-fact
  **/
-
-// 'use strict';
 const Alexa = require('alexa-sdk');
 const axios = require('axios');
 //=========================================================================================================================================
@@ -17,7 +15,8 @@ const axios = require('axios');
 
 //Replace with your app ID (OPTIONAL).  You can find this value at the top of your skill's page on http://developer.amazon.com.
 //Make sure to enclose your value in quotes, like this: const APP_ID = 'amzn1.ask.skill.bb4045e6-b3e8-4133-b650-72923c5980f1';
-const APP_ID = undefined;
+
+const APP_ID = 'amzn1.ask.skill.8c7de785-90f0-439a-b562-8f2be42ead70';
 
 const SKILL_NAME = 'Space Facts';
 const GET_FACT_MESSAGE = "Here's your fact: ";
@@ -26,41 +25,24 @@ const HELP_REPROMPT = 'What can I help you with?';
 const STOP_MESSAGE = 'Goodbye!';
 
 //=========================================================================================================================================
-//TODO: Replace this data with your own.  You can find translations of this data at http://github.com/alexa/skill-sample-node-js-fact/data
-//=========================================================================================================================================
-const data = [
-    'A year on Mercury is just 88 days long.',
-    'Despite being farther from the Sun, Venus experiences higher temperatures than Mercury.',
-    'Venus rotates counter-clockwise, possibly because of a collision in the past with an asteroid.',
-    'On Mars, the Sun appears about half the size as it does on Earth.',
-    'Earth is the only planet not named after a god.',
-    'Jupiter has the shortest day of all the planets.',
-    'The Milky Way galaxy will collide with the Andromeda Galaxy in about 5 billion years.',
-    'The Sun contains 99.86% of the mass in the Solar System.',
-    'The Sun is an almost perfect sphere.',
-    'A total solar eclipse can happen once every 1 to 2 years. This makes them a rare event.',
-    'Saturn radiates two and a half times more energy into space than it receives from the sun.',
-    'The temperature inside the Sun can reach 15 million degrees Celsius.',
-    'The Moon is moving approximately 3.8 cm away from our planet every year.',
-];
-
-//=========================================================================================================================================
 //Editing anything below this line might break your skill.
 //=========================================================================================================================================
 
 const handlers = {
     'LaunchRequest': function () {
-    let application = this 
-      axios.get('https://mercuryretrogradeapi.com/', {
-      })
-      .then(function (res) {
-        console.log("response: IsRetrograde?", res.data.is_retrograde);
-        application.response.speak(!res.data.is_retrograde ? "No, something else must be bumming you out!": "Yes, Mercury is actually retrograde!");
-        application.emit(':responseReady')
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    let application = this;
+    this.emit(':tell', 'Hello Brandon');
+    this.emit(':ask', 'Would you like a name fact?', 'Seriously say something!') 
+        // axios.get('https://mercuryretrogradeapi.com/', {
+        // })
+        // .then(function (res) {
+        //     console.log("response: IsRetrograde?", res.data.is_retrograde);
+        //     application.response.speak(!res.data.is_retrograde ? "No, but another update!": "Yes, Mercury is actually retrograde!");
+        //     application.emit(':responseReady')
+        // })
+        // .catch(function (error) {
+        //     console.log(error);
+        // });
     //   this.response.speak("hello we did a thing");
     //   this.emit(':responseReady');
     },
