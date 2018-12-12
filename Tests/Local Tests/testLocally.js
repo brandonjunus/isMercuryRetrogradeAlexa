@@ -1,6 +1,6 @@
 let lambda = require('../../index.js');
 // let mockEvent = require('./Tests/sayHello.json');
-let mockEvent = require('../Mock Events/launchRequest.json');
+let mockEvent = require('../Mock Requests/launchRequest.json');
 
 let callback = (err, data) => {
   if (err) console.log("ERROR: ", err);
