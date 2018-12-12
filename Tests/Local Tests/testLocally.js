@@ -1,4 +1,4 @@
-let lambda = require('../../index.js');
+let lambda = require('../../Lambda/index.js');
 // let mockEvent = require('./Tests/sayHello.json');
 let mockEvent = require('../Mock Requests/launchRequest.json');
 
